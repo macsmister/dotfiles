@@ -122,3 +122,21 @@ source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
 # formulae that put executables in /usr/local/sbin
 # --------
 export PATH="/usr/local/sbin:$PATH"
+
+# Get asked for SSH key passphrase once and only when needed
+# Source:
+# https://unix.stackexchange.com/a/180305
+# --------
+function check_ssh {
+  [[ $3 =~ '\bssh\b' ]] || return
+  [[ -n "$SSH_AGENT_PID" && -e "/proc/$SSH_AGENT_PID" ]] \
+    && ssh-add -l >/dev/null && return
+  eval `keychain --eval id_dsa --timeout 60`
+}
+autoload -U add-zsh-hook
+add-zsh-hook preexec check_ssh
+
+# Required by https://github.com/nvbn/thefuck utility
+# "It is recommended that you place this command in your .bash_profile, .bashrc, .zshrc or other startup script:"
+# --------
+eval $(thefuck --alias)
