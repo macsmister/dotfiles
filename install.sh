@@ -44,15 +44,17 @@ fi
 #
 [ ! -L "$HOME/.zshrc" ] && [ -f "$HOME/.zshrc" ] && mv $HOME/.zshrc $HOME/.zshrc$BACKUP_SUFFIX
 [ ! -L "$HOME/.p10k.zsh" ] && [ -f "$HOME/.p10k.zsh" ] && mv $HOME/.p10k.zsh $HOME/.p10k.zsh$BACKUP_SUFFIX
+[ ! -L "$HOME/.mackup" ] && [ -d "$HOME/.mackup" ] && cp -r $HOME/.mackup $HOME/.mackup$BACKUP_SUFFIX && rm -rf $HOME/.mackup
 [ ! -L "$HOME/.mackup.cfg" ] && [ -f "$HOME/.mackup.cfg" ] && mv $HOME/.mackup.cfg $HOME/.mackup.cfg$BACKUP_SUFFIX
 print_positive "Created backup of files from the ~/ directory"
 
 #
 # Symlink files from the ~/.dotfiles into the $HOME directory
 #
-ln -sf $DOTFILES/.zshrc $HOME/.zshrc
-ln -sf $DOTFILES/.p10k.zsh $HOME/.p10k.zsh
-ln -sf $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
+ln -sf $DOTFILES/.zshrc $HOME
+ln -sf $DOTFILES/.p10k.zsh $HOME
+ln -sf $DOTFILES/.mackup $HOME
+ln -sf $DOTFILES/.mackup.cfg $HOME
 print_positive "Symlinked files from the ~/.dotfiles directory to the ~/ directory"
 
 #
