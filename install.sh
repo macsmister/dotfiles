@@ -39,14 +39,14 @@ if ! brew ls --versions powerlevel10k > /dev/null; then
 fi
 
 #
-# Make a backup of files from the $HOME directory
+# Make a backup of configuration files from the $HOME directory
 # Files only, do not make a backup of symlinks
 #
 [ ! -L "$HOME/.zshrc" ] && [ -f "$HOME/.zshrc" ] && mv $HOME/.zshrc $HOME/.zshrc$BACKUP_SUFFIX
 [ ! -L "$HOME/.p10k.zsh" ] && [ -f "$HOME/.p10k.zsh" ] && mv $HOME/.p10k.zsh $HOME/.p10k.zsh$BACKUP_SUFFIX
 [ ! -L "$HOME/.mackup" ] && [ -d "$HOME/.mackup" ] && cp -r $HOME/.mackup $HOME/.mackup$BACKUP_SUFFIX && rm -rf $HOME/.mackup
 [ ! -L "$HOME/.mackup.cfg" ] && [ -f "$HOME/.mackup.cfg" ] && mv $HOME/.mackup.cfg $HOME/.mackup.cfg$BACKUP_SUFFIX
-print_positive "Created backup of files from the ~/ directory"
+print_positive "Created backup of configuration files from the ~/ directory"
 
 #
 # Symlink files from the ~/.dotfiles into the $HOME directory
