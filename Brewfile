@@ -16,6 +16,7 @@ brew 'mas' # Mac App Store manager
 brew "n"
 brew 'neofetch'
 brew 'openjdk'
+brew 'powerlevel10k'
 brew 'pv'
 brew 'thefuck'
 brew 'tldr'
