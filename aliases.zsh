@@ -135,7 +135,7 @@ alias spotlight_on='sudo mdutil -a -i on'
 alias lock='pmset displaysleepnow'
 
 # Hibernates the system
-alias hibernate='pmset sleep now'
+alias hibernate='pmset sleepnow'
 
 # Restarts the system
 alias reboot='osascript -e "tell application \"System Events\" to restart"'
