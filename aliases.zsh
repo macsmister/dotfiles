@@ -211,6 +211,12 @@ function update() {
         gem update
         gem cleanup
     fi
+
+    if command -v omz &> /dev/null; then
+        echo 'Updating Oh My Zsh...'
+        omz update
+        omz reload
+    fi
 }
 
 # Creates a directory and changes to it.
