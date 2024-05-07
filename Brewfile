@@ -2,7 +2,6 @@
 tap 'alienator88/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
 
 ## Binaries
 brew 'azure-cli'
