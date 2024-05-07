@@ -38,6 +38,10 @@ if ! brew ls --versions powerlevel10k > /dev/null; then
   brew install powerlevel10k
 fi
 
+# Install omz plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
 #
 # Make a backup of configuration files from the $HOME directory
 # Files only, do not make a backup of symlinks
