@@ -195,3 +195,7 @@ function mkcd() {
     mkdir -p -- "$@" && cd -P -- "$_" || exit;
 }
 alias take=mkcd
+
+## Zscaler
+alias start-zscaler="open -a /Applications/Zscaler/Zscaler.app --hide; sudo find /Library/LaunchDaemons -name '*zscaler*' -exec launchctl load {} \;"
+alias kill-zscaler="find /Library/LaunchAgents -name '*zscaler*' -exec launchctl unload {} \;;sudo find /Library/LaunchDaemons -name '*zscaler*' -exec launchctl unload {} \;"
