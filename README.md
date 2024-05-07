@@ -26,7 +26,7 @@ Read [the blog post](https://niziol.me/2024/05/i-love-dotfiles/) for more detail
 1. Clone the repo into the ~/.dotfiles directory:
 
     ```bash
-    git clone git@github.com:kniziol/dotfiles.git ~/.dotfiles
+    git clone git@github.com:macsmister/dotfiles.git ~/.dotfiles
     ```
 
    **Attention.**

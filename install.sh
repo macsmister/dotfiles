@@ -81,11 +81,10 @@ brew cleanup
 print_positive "Homebrew cleaned"
 
 #
-# Install Node.js and npm
+# Install Ollama LLMs
 #
-sudo n latest
-sudo n prune
-print_positive "Installed the latest versions of Node.js and npm"
+ollama pull llama2:13b && ollama pull llama2:latest && ollama pull llama2-uncensored:latest
+print_positive "Pulled the latest versions of Ollama LLMs"
 
 #
 # Set macOS preferences - we will run this last because this will reload the shell

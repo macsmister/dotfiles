@@ -11,44 +11,6 @@ alias lr="ls -alR"
 #
 alias cleardns='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 
-#
-# Package managers
-#
-alias composer_install_fresh='rm -rf vendor/ composer.lock && composer install'
-alias npm_install_fresh='rm -rf node_modules/ package-lock.json && npm install'
-
-#
-# Docker
-#
-alias dce='docker compose exec'
-alias dcl='docker compose logs -f'
-alias dcr='docker compose run --rm'
-alias dcp='docker compose ps --all'
-alias dcu='docker compose up -d'
-alias dcd='docker compose down'
-alias dcs='docker compose start && dcp'
-alias dcsps='docker compose stop'
-alias dcsp='dcsps && dcp'
-alias dcre='docker compose restart && dcp'
-alias dcdu='dcd && dcu && dcp'
-alias dcb='docker compose down && docker compose up -d --remove-orphans --build && dcp'
-alias dcbr='docker compose down && docker compose rm --force && docker compose up -d --remove-orphans --build && dcp'
-alias dcbf='docker compose down && docker compose rm --force && docker compose up -d --remove-orphans --build --force-recreate && docker compose ps'
-alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"'
-alias ds='docker stop $(docker ps -q)'
-alias dst='docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))'
-
-# Removes unused/dead containers, images, and volumes
-function docker-cleanup-unused() {
-    docker ps --filter status=dead --filter status=exited -aq | xargs docker rm -v
-    docker images -q --filter dangling=true | xargs docker rmi
-    docker volume rm $(docker volume ls -qf dangling=true)
-}
-
-# Removes all Docker data
-function docker-cleanup-all() {
-    docker system prune --all --volumes --force
-}
 
 #
 # Git
@@ -58,8 +20,8 @@ alias yolo='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 # Displays drives and space in human readable format
 alias dfh='df -h'
 
-# Stops ping after sending 4 ECHO_REQUEST packets
-alias ping10='ping -c 10'
+# Stops ping after sending 5 ECHO_REQUEST packets
+alias ping10='ping -c 5'
 
 # Lists directories only, in long format
 alias lsd='ls -l | grep --color=never "^d"'
@@ -113,10 +75,9 @@ done
 #
 # Web browsers, e.g. opens file/URL in a particular browser
 #
-alias chrome='open -a Google\ Chrome'
+alias arc='open -a Arc'
 alias edge='open -a Microsoft\ Edge'
 alias firefox='open -a Firefox'
-alias opera='open -a Opera'
 alias safari='open -a Safari'
 
 # Toggles display of desktop icons
@@ -218,6 +179,9 @@ function update() {
         omz reload
     fi
 }
+
+# Pull Ollama LLMs updates
+alias llmpull='ollama pull llama2:13b && ollama pull llama2:latest && ollama pull llama2-uncensored:latest'
 
 # Creates a directory and changes to it.
 # Syntax: `mkcd <directory>`
