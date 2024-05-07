@@ -17,7 +17,6 @@ Read [the blog post](https://niziol.me/2024/05/i-love-dotfiles/) for more detail
 - [Oh My Zsh](https://ohmyz.sh)
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k) - theme for Oh My Zsh
 - [Homebrew](https://brew.sh)
-- [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com)
 - [Mackup](https://github.com/lra/mackup)
 - [mas](https://github.com/mas-cli/mas)
 
